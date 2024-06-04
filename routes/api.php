@@ -28,4 +28,5 @@ Route::group([
     Route::get("logout", [AuthController::class, "logout"]);
     Route::resource("tasks",TaskController::class);
     Route::get('filter-task/{status_name}', [TaskController::class, "status_task"]);
+    Route::get('task_user/{user_id}', [TaskController::class, "task_user"]);
 });

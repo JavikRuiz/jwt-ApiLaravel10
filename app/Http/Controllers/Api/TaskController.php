@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
+    public function task_user($user_id) {
+        try {
+            $task = Task::where('user_id',$user_id)->get();
+            return response()->json($task);
+        } catch (Exception $e) {
+            return response()->json(['error'=>'Error al obtener las tareas por estado'],500);
+        }
+    }
     public function status_task($status_name)
     {
         try {
